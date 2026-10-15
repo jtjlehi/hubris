@@ -266,7 +266,13 @@ const INITIAL_FPSCR: u32 = 0;
 /// These need to be consistent! The failure mode is a secure fault otherwise.
 /// We currently assume that TrustZone has not been enabled (even on the parts
 /// that support it) (and that bit 6 and bit 0 can always be set).
+#[cfg(any(armv7m, armv8m))]
 const EXC_RETURN_CONST: u32 = 0xFFFFFFED;
+/// According to the ArmV6m manual, this is the value to use for "Return to thread mode"
+///
+/// Having any other value is "unpredictable"
+#[cfg(any(armv6m))]
+const EXC_RETURN_CONST: u32 = 0xFFFFFFFD;
 
 // Because debuggers need to know the clock frequency to set the SWO clock
 // scaler that enables ITM, and because ITM is particularly useful when
