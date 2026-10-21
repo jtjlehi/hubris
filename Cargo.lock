@@ -2320,6 +2320,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "drv-rp2040-gpio"
+version = "0.1.0"
+dependencies = [
+ "counters",
+ "drv-rp2040-gpio-api",
+ "idol",
+ "idol-runtime",
+ "num-traits",
+ "rp2040-hal",
+ "userlib",
+ "zerocopy 0.8.27",
+ "zerocopy-derive 0.8.27",
+]
+
+[[package]]
+name = "drv-rp2040-gpio-api"
+version = "0.1.0"
+dependencies = [
+ "counters",
+ "hubpack",
+ "idol",
+ "idol-runtime",
+ "num-traits",
+ "serde",
+ "userlib",
+ "zerocopy 0.8.27",
+ "zerocopy-derive 0.8.27",
+]
+
+[[package]]
 name = "drv-sbrmi"
 version = "0.1.0"
 dependencies = [
@@ -2990,6 +3020,7 @@ version = "0.1.0"
 dependencies = [
  "build-util",
  "drv-lpc55-gpio-api",
+ "drv-rp2040-gpio-api",
  "drv-stm32xx-sys-api",
  "drv-user-leds-api",
  "enum-map",
@@ -2997,7 +3028,6 @@ dependencies = [
  "idol-runtime",
  "lpc55-pac",
  "num-traits",
- "rp2040-hal",
  "stm32f3",
  "stm32f4",
  "task-config",
