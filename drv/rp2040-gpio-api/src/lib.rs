@@ -55,8 +55,8 @@ impl Gpio {
 )]
 #[repr(u8)]
 pub enum Direction {
-    In,
-    Out,
+    In = 0,
+    Out = 1,
 }
 
 #[derive(

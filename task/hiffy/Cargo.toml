@@ -12,6 +12,7 @@ drv-sp-ctrl-api = { path = "../../drv/sp-ctrl-api", optional = true }
 drv-spi-api = { path = "../../drv/spi-api" }
 drv-stm32xx-i2c = { path = "../../drv/stm32xx-i2c", optional = true  }
 drv-stm32xx-sys-api = { path = "../../drv/stm32xx-sys-api", optional = true }
+drv-rp2040-gpio-api = { path = "../../drv/rp2040-gpio-api", optional = true }
 task-net-api = { path = "../../task/net-api", optional = true }
 hubris-num-tasks = { path = "../../sys/num-tasks", features = ["task-enum"] }
 ringbuf = { path = "../../lib/ringbuf"  }
@@ -47,6 +48,7 @@ send-rw = []
 stm32h7 = ["drv-stm32xx-sys-api/family-stm32h7", "userlib/panic-messages", "send", "send-rw"]
 lpc55 = ["drv-lpc55-gpio-api", "userlib/panic-messages", "send", "send-rw"]
 stm32g0 = ["drv-stm32xx-sys-api/family-stm32g0"]
+rp2040 = ["drv-rp2040-gpio-api", "send", "send-rw"]
 qspi = ["drv-hf-api", "drv-hash-api"]
 hash = ["drv-hash-api"]
 h743 = ["stm32h7", "drv-stm32xx-i2c/h743", "build-i2c/h743"]

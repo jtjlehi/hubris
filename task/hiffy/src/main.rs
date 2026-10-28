@@ -34,6 +34,9 @@ cfg_if::cfg_if! {
     } else if #[cfg(feature = "stm32g0")] {
         pub mod stm32g0;
         use crate::stm32g0::*;
+    } else if #[cfg(feature = "rp2040")] {
+        pub mod rp2040;
+        use crate::rp2040::*;
     } else if #[cfg(feature = "testsuite")] {
         pub mod tests;
         use crate::tests::*;

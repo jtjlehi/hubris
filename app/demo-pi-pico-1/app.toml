@@ -8,7 +8,7 @@ default-ram = "sram"
 
 [kernel]
 name = "demo-pi-pico-1"
-requires = {flash = 20000, ram = 1232}
+requires = {flash = 20000, ram = 2048}
 stacksize = 640
 
 [tasks.jefe]
@@ -33,10 +33,20 @@ features = [ "rp2040" ]
 priority = 2
 max-sizes = {flash = 4096, ram = 1024}
 uses = []
-start = true
+# start = true
 task-slots = [ "gpio_driver" ]
 notifications = ["timer"]
 config = { blink_at_start = [ "Led::Zero" ] }
+
+[tasks.hiffy]
+name = "task-hiffy"
+priority = 4
+features = ["rp2040", "gpio", "spctrl"]
+max-sizes = {flash = 32768, ram = 16384 }
+stacksize = 2048
+start = true
+task-slots = ["gpio_driver"]
+notifications = ["timer"]
 
 [tasks.idle]
 name = "task-idle"
