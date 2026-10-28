@@ -1,0 +1,10 @@
+Interface(
+    name: "Pio",
+    ops: {
+        "create_sm": (
+            args: {},
+            reply: Simple("()"),
+            idempotent: true,
+        ),
+    }
+)

@@ -2254,6 +2254,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "drv-pio"
+version = "0.1.0"
+dependencies = [
+ "counters",
+ "drv-pio-api",
+ "idol",
+ "idol-runtime",
+ "num-traits",
+ "rp2040-hal",
+ "userlib",
+ "zerocopy 0.8.27",
+ "zerocopy-derive 0.8.27",
+]
+
+[[package]]
+name = "drv-pio-api"
+version = "0.1.0"
+dependencies = [
+ "counters",
+ "hubpack",
+ "idol",
+ "idol-runtime",
+ "num-traits",
+ "serde",
+ "userlib",
+ "zerocopy 0.8.27",
+ "zerocopy-derive 0.8.27",
+]
+
+[[package]]
 name = "drv-psc-psu-update"
 version = "0.1.0"
 dependencies = [
