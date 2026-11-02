@@ -2,8 +2,16 @@ Interface(
     name: "Pio",
     ops: {
         "create_sm": (
-            args: {},
-            reply: Simple("()"),
+            args: {
+                "program": (type: "PioProgram", recv: FromPrimitive("u8"))
+            },
+            reply: Result(
+                ok: (
+                    type: "Sm",
+                    recv: FromPrimitive("u8"),
+                ),
+                err: CLike("PioError"),
+            ),
             idempotent: true,
         ),
     }
