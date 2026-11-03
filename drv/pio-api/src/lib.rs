@@ -22,12 +22,30 @@ pub enum PioProgram {
 pub struct Sm(u8);
 
 impl Sm {
-    pub fn new(inner: u8) -> Self {
-        Self(inner)
+    pub fn new(inst: PioInst, sm: u8) -> Self {
+        Self(match inst {
+            PioInst::Pio0 => sm,
+            PioInst::Pio1 => sm + 4,
+        })
     }
-    pub fn get(self) -> u8 {
-        self.0
+    /// Get the PIO instance this state machine belongs to
+    pub fn get_inst(self) -> PioInst {
+        match self.0 / 4 {
+            0 => PioInst::Pio0,
+            1 => PioInst::Pio1,
+            _ => unreachable!(),
+        }
     }
+    /// Get the index of this state machine
+    pub fn get_sm_idx(self) -> u8 {
+        self.0 % 4
+    }
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum PioInst {
+    Pio0,
+    Pio1,
 }
 
 #[derive(
@@ -35,6 +53,8 @@ impl Sm {
 )]
 pub enum PioError {
     InvalidProgram = 1,
+    NoStateMachine = 2,
+    NoInstructionMemory = 3,
 }
 
 include!(concat!(env!("OUT_DIR"), "/client_stub.rs"));

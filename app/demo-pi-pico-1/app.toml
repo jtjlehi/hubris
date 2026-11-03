@@ -22,9 +22,9 @@ notifications = ["fault", "timer"]
 [tasks.pio_driver]
 name = "drv-pio"
 priority = 1
-max-sizes = {flash = 4096, ram = 2048}
+max-sizes = {flash = 6144, ram = 2048}
 start = true
-uses = []
+uses = [ "io_bank0" ]
 task-slots = []
 
 [tasks.gpio_driver]
